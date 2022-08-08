@@ -1,5 +1,6 @@
 <template>
   <h2>{{ customTitle }}</h2>
+  <p data-test-id="counter">{{ counter }}</p>
   <p>{{ counter }} <sup>2</sup> = {{ counterPow }}</p>
   <div>
     <button
