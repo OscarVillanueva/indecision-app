@@ -35,26 +35,33 @@ export default {
   methods: {
     async getResponse() {
 
-      this.answer = 'Pensando . . .'
-
-      const { answer, image } = await fetch('https://yesno.wtf/api')
-        .then(response => response.json())
-
-      switch (answer) {
-        case 'yes':
-          this.answer = '¡Si!'
-          break;
+      try {
+        this.answer = 'Pensando . . .'
+  
+        const { answer, image } = await fetch('https://yesno.wtf/api')
+          .then(response => response.json())
+  
+        switch (answer) {
+          case 'yes':
+            this.answer = '¡Si!'
+            break;
+          
+          case 'no':
+            this.answer = '¡No!'
+            break;
         
-        case 'no':
-          this.answer = '¡No!'
-          break;
-      
-        default:
-          this.answer = 'Tal vez'
-          break;
-      }
+          default:
+            this.answer = 'Tal vez'
+            break;
+        }
+  
+        this.img = image
+      } catch (error) {
+        
+        this.img = null
+        this.answer = 'No se encontró respuesta'
 
-      this.img = image
+      }
   
     }
   },
@@ -62,6 +69,8 @@ export default {
     question(value, oldValue) {
       
       this.isValidQuestion = false
+
+      console.log({ value })
 
       if(!value.endsWith('?')) return
 

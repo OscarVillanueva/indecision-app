@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Indecision app should match with the snapshot 1`] = `
+<img alt="background" style="display: none;">
+<div class="bg-dark"></div>
+<div class="indecision-container"><input type="text" name="question" id="question" placeholder="Realiza una pregunta">
+  <p>Recuerda terminar con un signo de interrogación (?)</p>
+  <div style="display: none;">
+    <h2></h2>
+    <h1></h1>
+  </div>
+</div>
+`;
